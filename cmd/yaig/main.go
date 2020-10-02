@@ -330,8 +330,13 @@ var stopWords = [...]string {
 	"yourselves",
 }
 
+// Entry entry for index generation
+type Entry struct {
+	document, index interface{}
+}
+
 func main() {
-	raw, err := ioutil.ReadFile("example.txt")
+	raw, err := ioutil.ReadFile("road.txt")
 	if err != nil {
 		log.Fatal(err)
 		return
@@ -344,13 +349,29 @@ func main() {
 	}
 
 	cleaned := reg.ReplaceAllString(string(raw), " ")
-	tokens := strings.Split(string(cleaned), " ")
+	stripped := strings.TrimRight(cleaned, " ")
+	tokens := strings.Split(string(stripped), " ")
 
-	for _, element := range tokens {
-		if element != " " {
-			fmt.Println(element)
+	master := map[string][]Entry {}
+	for index, element := range tokens {
+		isin := false
+		for _, stop := range stopWords{
+			lower := strings.ToLower(element)
+			if len(lower) != 0 && lower == stop {
+				isin = true
+			}
+		}
+		if isin == false {
+			lower := strings.ToLower(element)
+			value, ok := master[lower]
+			if ok {
+				existing := value
+				updated := append(existing, Entry{1, index})
+				master[lower] = updated
+			} else {
+				master[lower] = append(master[lower], Entry{1, index})
+			}
 		}
 	}
-
-	fmt.Println(tokens[13])
+	fmt.Println(master)
 }
