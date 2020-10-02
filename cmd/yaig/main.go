@@ -364,7 +364,7 @@ func main() {
 		if isin == false {
 			lower := strings.ToLower(element)
 			value, ok := master[lower]
-			if ok {
+		   	if ok {
 				existing := value
 				updated := append(existing, Entry{1, index})
 				master[lower] = updated
