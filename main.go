@@ -20,5 +20,4 @@ func main() {
 		return
 	}
 	fmt.Println("Hello.")
-
 }
