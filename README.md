@@ -20,7 +20,7 @@ Yaig creates an (inverted index)[https://xlinux.nist.gov/dads/HTML/invertedIndex
 ## Example
 
 #### Given a sample input:
-The Road Not Taken 
+The Road Not Taken
 BY ROBERT FROST
 Two roads diverged in a yellow wood,
 And sorry I could not travel both
@@ -46,15 +46,18 @@ Two roads diverged in a wood, and I—
 I took the one less traveled by,
 And that has made all the difference.
 
-#### We can produce an inverted index
+### We can produce an inverted index
 
-The inverted index is a `map` object consiting of objects
+#### The inverted index is a `map` object consiting of objects
 
-An object consists of a key `word string` with value `Entry`
+#### An object consists of a key `word string` with value `Entry`
+```go
+ages:[{1 125} {1 127}]
+```
 
-The `Entry` struct is comprised two parts:
-    -`document` a uinque doc identifier
-    -`index` index of the word in the document
+#### The `Entry` struct is comprised two parts:
+-	`document` a uinque doc identifier
+-	`index` index of the word in the document
 
 ```bash
 map[
