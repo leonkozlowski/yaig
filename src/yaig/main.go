@@ -1,13 +1,13 @@
 package main
 
 import (
-	conf "yaig/conf"
+  conf "yaig/conf"
 
-	"fmt"
-	"io/ioutil"
-	"log"
-	"regexp"
-	"strings"
+  "fmt"
+  "io/ioutil"
+  "log"
+  "regexp"
+  "strings"
 )
 
 // Entry entry for index generation
