@@ -53,8 +53,8 @@ The inverted index is a `map` object consiting of objects
 An object consists of a key `word string` with value `Entry`
 
 The `Entry` struct is comprised two parts:
-    * `document` a uinque doc identifier
-    * `index` index of the word in the document
+    -`document` a uinque doc identifier
+    -`index` index of the word in the document
 
 ```bash
 map[
