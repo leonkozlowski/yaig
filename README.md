@@ -15,7 +15,7 @@ $ ./bin/yaig
 
 ## Usage
 
-Yaig creates an (inverted index)[https://xlinux.nist.gov/dads/HTML/invertedIndex.html] for a given `"*.txt"` input
+Yaig creates an [inverted index](https://xlinux.nist.gov/dads/HTML/invertedIndex.html) for a given `"*.txt"` input
 
 ## Example
 
