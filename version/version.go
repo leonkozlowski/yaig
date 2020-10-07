@@ -1,8 +1,8 @@
 package version
 
 import (
-	"fmt"
-	"runtime"
+  "fmt"
+  "runtime"
 )
 
 // GitCommit returns the git commit that was compiled. This will be filled in by the compiler.
