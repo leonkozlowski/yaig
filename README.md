@@ -13,6 +13,13 @@ $ make
 $ ./bin/yaig
 ```
 
+Or for CLI usage
+
+```console
+$ go build
+$ ./yaig input road.txt
+```
+
 ## Usage
 
 Yaig creates an [inverted index](https://xlinux.nist.gov/dads/HTML/invertedIndex.html) for a given `"*.txt"` input
