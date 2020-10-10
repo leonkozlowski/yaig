@@ -5,27 +5,27 @@ import (
   "io/ioutil"
   "log"
   "regexp"
-	"strings"
+  "strings"
 
-	"github.com/spf13/cobra"
+  "github.com/spf13/cobra"
 
   "github.com/leonkozlowski/yaig/cmd/yaig/conf"
 )
 
 var filePath string
 var indexCmd = &cobra.Command{
-	Use:   "index [filename]",
-	Short: "Generate an inverted index for .txt file input",
-	Args:  cobra.ExactArgs(1),
-	Run: func(cmd *cobra.Command, args []string) {
-		fp := args[0]
-		generateInvertedIndex(fp)
-	},
+  Use:   "index [filename]",
+  Short: "Generate an inverted index for .txt file input",
+  Args:  cobra.ExactArgs(1),
+  Run: func(cmd *cobra.Command, args []string) {
+    fp := args[0]
+    generateInvertedIndex(fp)
+  },
 }
 
 func init() {
-	indexCmd.Flags().StringVarP(&filePath, "filepath", "f", "./", "Input filepath")
-	RootCmd.AddCommand(indexCmd)
+  indexCmd.Flags().StringVarP(&filePath, "filepath", "f", "./", "Input filepath")
+  RootCmd.AddCommand(indexCmd)
 }
 
 // Entry entry for index generation
@@ -41,7 +41,7 @@ func generateInvertedIndex(filepath string) map[string][]Entry {
 
   reg, err := regexp.Compile("[^a-zA-Z0-9]+")
   if err != nil {
-		log.Fatal(err)
+    log.Fatal(err)
   }
 
   cleaned := reg.ReplaceAllString(string(raw), " ")
@@ -67,7 +67,7 @@ func generateInvertedIndex(filepath string) map[string][]Entry {
         master[lower] = append(master[lower], Entry{1, index})
       }
     }
-	}
-	fmt.Println(master)
+  }
+  fmt.Println(master)
   return master
 }
