@@ -1,13 +1,13 @@
-package main
+package gen
 
 import (
-  conf "yaig/conf"
-
   "fmt"
   "io/ioutil"
   "log"
   "regexp"
   "strings"
+
+  "github.com/leonkozlowski/yaig/cmd/yaig/conf"
 )
 
 // Entry entry for index generation
@@ -15,11 +15,11 @@ type Entry struct {
   document, index interface{}
 }
 
-func main() {
+func generateInvertedIndex() {
   raw, err := ioutil.ReadFile("road.txt")
   if err != nil {
     log.Fatal(err)
-	return
+    return
   }
 
   reg, err := regexp.Compile("[^a-zA-Z0-9]+")
@@ -44,13 +44,13 @@ func main() {
       lower := strings.ToLower(element)
       value, ok := master[lower]
       if ok {
-	    existing := value
-		updated := append(existing, Entry{1, index})
-		master[lower] = updated
-	  } else {
-	    master[lower] = append(master[lower], Entry{1, index})
-	  }
-	}
+        existing := value
+        updated := append(existing, Entry{1, index})
+        master[lower] = updated
+      } else {
+        master[lower] = append(master[lower], Entry{1, index})
+      }
+    }
   }
   fmt.Println(master)
 }

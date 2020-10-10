@@ -4,11 +4,11 @@ import (
 	"flag"
 	"fmt"
 
+	"github.com/leonkozlowski/yaig/cmd"
 	"github.com/leonkozlowski/yaig/version"
 )
 
 func main() {
-
 	versionFlag := flag.Bool("version", false, "Version")
 	flag.Parse()
 
@@ -20,5 +20,5 @@ func main() {
 		fmt.Println("OS / Arch:", version.OsArch)
 		return
 	}
-	fmt.Println("Hello.")
+	cmd.RootCmd.Execute()
 }
